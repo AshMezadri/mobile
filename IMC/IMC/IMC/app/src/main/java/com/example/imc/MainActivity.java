@@ -12,8 +12,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     EditText txtPeso, txtAltura;
-    TextView txtImc;
-    Double peso, altura, imc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +20,18 @@ public class MainActivity extends AppCompatActivity {
 
         txtPeso = findViewById(R.id.txtPeso);
         txtAltura = findViewById(R.id.txtAltura);
-        txtImc = findViewById(R.id.txtIMCR);
     }
 
-    public void onCLick(View v){
+    public void onClick(View v) {
 
+            double peso = Double.parseDouble(txtPeso.getText().toString());
+            double altura = Double.parseDouble(txtAltura.getText().toString());
+            double imc = peso / (altura * altura);
 
-        peso = Double.parseDouble(txtPeso.getText().toString());
-        altura = Double.parseDouble(txtAltura.getText().toString());
-        imc = peso / (altura * altura);
-
-        Intent it = new Intent(MainActivity.this, resultado.class);
-        startActivity(it);
-
+            Intent intent = new Intent(MainActivity.this, resultado.class);
+            intent.putExtra("peso", peso);
+            intent.putExtra("altura", altura);
+            intent.putExtra("imc", imc);
+            startActivity(intent);
     }
 }
