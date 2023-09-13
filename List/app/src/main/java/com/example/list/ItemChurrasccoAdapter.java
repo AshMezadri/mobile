@@ -36,7 +36,7 @@ public class ItemChurrasccoAdapter extends ArrayAdapter<ItemChurrasco> {
 
         txtNome.setText(getItem(position).nome);
         txtId.setText(String.valueOf(getItem(position).id));
-        imagem.setText(String.valueOf(getItem(position).imagem));
+        imagem.setImageResource(getItem(position).imagem);
 
         return convertView;
     }
