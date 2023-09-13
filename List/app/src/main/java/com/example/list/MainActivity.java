@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
 
         ItemChurrasccoAdapter adapter = new ItemChurrasccoAdapter(this, R.layout.item_churrasco, listaItensChurrasco);
 
-        listView.setAdapter();
+        listView.setAdapter(adapter);
     }
 }
 
