@@ -2,17 +2,21 @@ package com.example.list;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
 
-    String[] nomes;
-    ListView listView;
+   ArrayList<ItemChurrasco> listaItensChurrasco = new ArrayList<ItemChurrasco>();
+   ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +24,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.listView);
 
-        nomes = new String[]{"Pipoca", "Cenoura", "Doce"};
+        listaItensChurrasco.add(new ItemChurrasco(1,"Carne", R.drawable.carne));
+        listaItensChurrasco.add(new ItemChurrasco(2,"Linguiça", R.drawable.linguica));
+        listaItensChurrasco.add(new ItemChurrasco(3,"Refri", R.drawable.refri));
+        listaItensChurrasco.add(new ItemChurrasco(4,"Pão de Alho", R.drawable.pao_de_alho));
+        listaItensChurrasco.add(new ItemChurrasco(5,"Caipirinha", R.drawable.caipirinha));
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, android.R.id.text1, nomes);
+        ItemChurrasccoAdapter adapter = new ItemChurrasccoAdapter(this, R.layout.item_churrasco, listaItensChurrasco);
 
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-                Toast.makeText(getApplicationContext(),"Blablabla"+Integer.toString(i),Toast.LENGTH_LONG).show();
-            }
-        });
+        listView.setAdapter();
     }
 }
+
