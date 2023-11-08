@@ -2,15 +2,27 @@ package com.example.sqliteapp.model;
 
 public class Nota {
 
+    Integer id;
     String titulo;
-    String nota;
+    String texto;
 
-    public String getNota() {
-        return nota;
+    public Nota(Integer id, String titulo, String texto) {
+        this.id = id;
+        this.titulo = titulo;
+        this.texto = texto;
     }
 
-    public void setNota(String nota) {
-        this.nota = nota;
+    public Nota(String titulo, String texto) {
+        this.titulo = titulo;
+        this.texto = texto;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -21,5 +33,11 @@ public class Nota {
         this.titulo = titulo;
     }
 
+    public String getTexto() {
+        return texto;
+    }
 
+    public void setTexto(String texto) {
+        this.texto = texto;
+    }
 }

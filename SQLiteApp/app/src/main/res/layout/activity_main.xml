@@ -6,48 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".view.MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="392dp"
-        android:layout_height="128dp"
-        android:orientation="horizontal"
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="novaNota"
+        android:text="Nova Nota"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
-
-        <EditText
-            android:id="@+id/txtNota"
-            android:layout_width="225dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="20px"
-            android:layout_weight="2"
-            android:ems="10"
-            android:inputType="textPersonName" />
-
-        <Button
-            android:id="@+id/botao"
-            android:layout_width="116dp"
-            android:layout_height="58dp"
-            android:layout_gravity="center"
-            android:layout_margin="20px"
-            android:layout_weight="2"
-            android:text="Salvar"
-            android:onClick="onClick"/>
-
-    </LinearLayout>
-
-    <ListView
-        android:id="@+id/listView"
-        android:layout_width="391dp"
-        android:layout_height="529dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.059" />
 </androidx.constraintlayout.widget.ConstraintLayout>
