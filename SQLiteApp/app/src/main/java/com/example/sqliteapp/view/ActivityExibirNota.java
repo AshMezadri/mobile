@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.sqliteapp.R;
 import com.example.sqliteapp.controller.NotaController;
@@ -28,8 +29,7 @@ public class ActivityExibirNota extends AppCompatActivity {
     }
 
     public void salvarNota(View v){
-
-        nController.cadastrarNota(new Nota(titulo.getText().toString(), texto.getText().toString()));
-
+        Nota n = nController.cadastrarNota( new Nota(titulo.getText().toString(), texto.getText().toString()));
+        Toast.makeText(this, Integer.toString(n.getId()), Toast.LENGTH_LONG).show();
     }
 }

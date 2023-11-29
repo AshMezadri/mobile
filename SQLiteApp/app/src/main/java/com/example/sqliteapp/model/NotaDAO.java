@@ -1,8 +1,12 @@
 package com.example.sqliteapp.model;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+
+import java.util.ArrayList;
 
 public class NotaDAO {
 
@@ -26,4 +30,19 @@ public class NotaDAO {
         return n;
     }
 
+    @SuppressLint("Range")
+    public ArrayList<Nota> getListaNotas() {
+
+        Cursor cursor = database.rawQuery("SELECT * FROM notas", null);
+        cursor.moveToFirst();
+        ArrayList<Nota> arrayList = new ArrayList<>();
+
+        while (!cursor.isAfterLast()){
+            Nota n = new Nota(cursor.getInt(0), cursor.getString(1), cursor.getString(2));
+            arrayList.add(n);
+            cursor.moveToNext();
+        }
+
+        return arrayList;
+    }
 }

@@ -16,16 +16,19 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import com.example.sqliteapp.R;
+import com.example.sqliteapp.controller.NotaController;
+import com.example.sqliteapp.model.Nota;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    @SuppressLint("Range")
+    ListView lv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        lv = findViewById(R.id.listView);
     }
 
     public void novaNota(View v){
@@ -34,4 +37,21 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        NotaController notaController = new NotaController(this);
+        ArrayList<String> dataset = notaController.listaTitulosNotas();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                android.R.id.text1,
+                dataset
+        );
+
+        lv.setAdapter(adapter);
+
+    }
 }
