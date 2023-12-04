@@ -15,6 +15,8 @@ public class ActivityExibirNota extends AppCompatActivity {
 
     NotaController nController;
 
+    int idNota;
+
     EditText texto, titulo;
 
     @Override
@@ -23,13 +25,16 @@ public class ActivityExibirNota extends AppCompatActivity {
         setContentView(R.layout.activity_exibir_nota);
         nController = new NotaController(getApplicationContext());
 
+        idNota = getIntent().getIntExtra("id_nota", 0);
+
         texto = findViewById(R.id.txtNota);
         titulo = findViewById(R.id.txtTitulo);
-
     }
 
     public void salvarNota(View v){
-        Nota n = nController.cadastrarNota( new Nota(titulo.getText().toString(), texto.getText().toString()));
+        Nota n = nController.cadastrarNota(new Nota(titulo.getText().toString(), texto.getText().toString()));
         Toast.makeText(this, Integer.toString(n.getId()), Toast.LENGTH_LONG).show();
+        finish();
+
     }
 }
